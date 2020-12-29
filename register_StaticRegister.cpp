@@ -134,4 +134,48 @@ JNIEXPORT void JNICALL Java_clz_MethodTest_nativeCallStaticMethod
     env->DeleteLocalRef(cls);
 }
 
+static jclass cls_string = nullptr;
+static jmethodID cid_string = nullptr;
+//野指针问题
+JNIEXPORT jstring JNICALL Java_ref_Reference_newString
+        (JNIEnv *env, jobject jObj, jint len) {
+    jcharArray elemArray;
+    jstring j_str;
+    //定义静态的局部变量
+    static jclass cls_string = nullptr;
+    if (cls_string == nullptr) {
+        printf("cls_string is null\n");
+        cls_string = env->FindClass("java/lang/String");
+        if (cls_string == nullptr) {
+            return nullptr;
+        }
+    }
+    if (cid_string == nullptr) {
+        printf("cid_string is null\n");
+        cid_string = env->GetMethodID(cls_string, "<init>", "([C)V");
+        if (cls_string == nullptr) {
+            return nullptr;
+        }
+    }
+
+    printf("this is a line -------------\n");
+    elemArray = env->NewCharArray(len);
+    j_str = jstring(env->NewObject(cls_string, cid_string, elemArray));//
+    env->DeleteLocalRef(elemArray);
+
+    env->DeleteLocalRef(cls_string);
+    cls_string = nullptr;
+    //env->DeleteLocalRef(cid_string);此处的 delete不能存在，因为 cid_string不是jobject，应用只需要对object类型的引用而言的
+    cid_string = nullptr;
+
+    printf("end of function \n");
+    return j_str;
+
+}
+
+JNIEXPORT void JNICALL Java_ref_Reference_JCall
+        (JNIEnv *env, jobject jObj) {
+    Java_ref_Reference_newString(env, jObj, 1024);
+}
+
 

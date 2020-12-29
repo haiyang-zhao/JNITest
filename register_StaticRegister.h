@@ -34,6 +34,12 @@ JNIEXPORT void JNICALL Java_clz_MethodTest_nativeCallInstanceMethod
 JNIEXPORT jstring JNICALL Java_clz_MethodTest_nativeCallInstanceMethod1
         (JNIEnv *env, jobject jObj, jstring jStr, jint jInt);
 
+
+JNIEXPORT jstring JNICALL Java_ref_Reference_newString
+        (JNIEnv *env, jobject jObj, jint jInt);
+
+JNIEXPORT void JNICALL Java_ref_Reference_JCall
+        (JNIEnv *env, jobject jObj);
 #ifdef __cplusplus
 }
 #endif
