@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mactty/workspace/study/JNITest/jni.h
+stdio.h
+-
+stdarg.h
+-
+jni_md.h
+/Users/mactty/workspace/study/JNITest/jni_md.h
+
+/Users/mactty/workspace/study/JNITest/jni_md.h
+
+/Users/mactty/workspace/study/JNITest/register_StaticRegister.cpp
+register_StaticRegister.h
+/Users/mactty/workspace/study/JNITest/register_StaticRegister.h
+string.h
+-
+
+/Users/mactty/workspace/study/JNITest/register_StaticRegister.h
+jni.h
+/Users/mactty/workspace/study/JNITest/jni.h
+

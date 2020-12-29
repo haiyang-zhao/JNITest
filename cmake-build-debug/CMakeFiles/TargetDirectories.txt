@@ -1,0 +1,4 @@
+/Users/mactty/workspace/study/JNITest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/mactty/workspace/study/JNITest/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mactty/workspace/study/JNITest/cmake-build-debug/CMakeFiles/JNTDynamic_reg.dir
+/Users/mactty/workspace/study/JNITest/cmake-build-debug/CMakeFiles/JNIStatic_reg.dir
